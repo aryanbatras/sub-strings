@@ -9,24 +9,33 @@ temp_char = ''
 temp_length = ''
 
 
+
 words = words.downcase.split(/[\s]/)
 
 
     words.each {
     |word|
 
+    temp_word = word.split('')
+        temp_word.each {
+            |symbol|
+            if symbol =~ /[^a-zA-Z]/
+               symbol.replace('')
+            end
+        }
+         temp_word = temp_word.join('')
 
-    temp = word
+    temp = temp_word
     length = temp.length
     
-        if arr.include?(word)
+        if arr.include?(temp_word)
             hash[word] += +1
         end
 
-        temp_word = word.split('')
+        temp_chr = temp_word.split('')
         temp_num = 0
         length.times do
-            temp_letter = temp_word[temp_num]
+            temp_letter = temp_chr[temp_num]
             if arr.include?(temp_letter)
                 hash[temp_letter] += +1
             end
@@ -88,5 +97,5 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 substrings("Howdy partner, sit down! How's it going?", dictionary)
 
 
-# {"howdy"=>1, "how"=>2, "partner"=>1, "part"=>1, "sit"=>1, "i"=>3, "it"=>2, "down"=>1, "going"=>1, "go"=>1}
+# {"howdy"=>1, "how"=>2, "partner"=>1, "part"=>1, "sit"=>1, "i"=>3, "it"=>2, "down!"=>1, "own"=>1, "going"=>1, "go"=>1}
 
