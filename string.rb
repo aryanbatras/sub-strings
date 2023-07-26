@@ -29,7 +29,7 @@ words = words.downcase.split(/[\s]/)
     length = temp.length
     
         if arr.include?(temp_word)
-            hash[word] += +1
+            hash[temp_word] += +1
         end
 
         temp_chr = temp_word.split('')
